@@ -20,8 +20,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 #container div.textHidden {
     color: white;
+}
+
+#container div.textRevealed {
+    color: black;
 }
