@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    height: 100vh;
+    margin: auto;
+}
+
+#container div {
+    width: 20%;
+    height: 30%;
+    border: black 1px solid;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container div.textHidden {
+    color: white;
+}
