@@ -1,14 +1,16 @@
 # PP-Card-Game
 
 Features to implement:
-    -adding a modal or a pop-up when the page loads containing the rules of the game
-    -adding a button that allows to play another game
+    -adding a button that starts the game and allows to play another one
     -adding a counter that tracks the number of wins
     -adding a message when the player wins
         -and counter++
-    -adding a limited number of attempts before player loses
+        -and remove the possibility to click on cards
+    -adding a limited number of attempts before player loses(3) (using an array in JS to keep track of the losses?)
+    -adding a counter that tracks the number of losses
     -adding a message when the player loses(has used all of his attempts)
-    -adding a limited number of losses before game over
+        -and counter of losses++
+    -adding a limited number of losses before game over(3)
     -adding a message when game over
         -and counter reset to zero
     -styling the cards and the background

@@ -1,6 +1,17 @@
-const cards = document.querySelectorAll('div:not(#container)')
+const cards = document.querySelectorAll('.card')
+const modal = document.getElementById('myModal')
+const closeModal = document.querySelector('.close')
 
-const numbers = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6]
+// Modal pops-up when page loads
+window.onload = () => {
+    modal.style.display = 'block'
+}
+
+// Modal disappears when cross is clicked on
+closeModal.onclick = () => {
+    modal.style.display = 'none'
+}
+
 
 // Generates a random number between 0 and the length of 'numbers'
 const randomIndex = (nb) => {
@@ -12,7 +23,7 @@ const randomIndex = (nb) => {
 // If not, hides all the cards
 let numbersRevealed = []
 const revealText = (element) => {
-    element.className = 'textRevealed'
+    element.className = 'card textRevealed'
     numbersRevealed.push(element.textContent)
     for (let i = 0; i < numbersRevealed.length - 1; i++) {
         if (numbersRevealed[i] + element.textContent === '11' ||
@@ -26,15 +37,17 @@ const revealText = (element) => {
         } else {
             setTimeout(() => {
                 cards.forEach(card => {
-                     card.className = 'textHidden'
+                     card.className = 'card textHidden'
                  }) 
-            }, 1000)
+            }, 700)
             numbersRevealed = []
         }
     }
 }
 
 // Assigns a random number to each card so that it creates 6 pairs
+const numbers = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6]
+
 cards.forEach(card => {
     const index = randomIndex(numbers.length)
     const number = numbers[index]
@@ -45,7 +58,7 @@ cards.forEach(card => {
 // Assigns the attribute 'onclick' and hides the number of each card after 5 seconds
 setTimeout(() => {
    cards.forEach(card => {
-        card.className = 'textHidden'
+        card.className = 'card textHidden'
         card.setAttribute('onclick', 'revealText(this)')
     }) 
 }, 5000)

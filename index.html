@@ -9,19 +9,38 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="headerModal">
+                <h1>Rules of the game</h1>
+                <span class="close">&times;</span>
+            </div>
+            <ul class="rules">
+                <li>When the button 'Play' is clicked, a new game begins</li>
+                <li>You will have 5 seconds to memorise the numbers on the cards before they disappear</li>
+                <li>You will then have to click on a card to reveal the number</li>
+                <li>If you find a pair, the numbers will stay on the cards</li>
+                <li>If you don't, all the numbers will disappear again</li>
+                <li>If you find all the pairs, you win. That will add 1 point to the counter of wins</li>
+                <li>If you make the numbers disappear 3 times, you lose. That will add 1 point to the counter of losses</li>
+                <li>If you lose 3 times, it is game over. The counter of wins and losses will be reset to zero</li>
+            </ul>
+        </div>
+    </div>
+
     <div id="container">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
     </div>
 </body>
 </html>
