@@ -2,6 +2,7 @@ const cards = document.querySelectorAll('.card')
 const modal = document.getElementById('myModal')
 const closeModal = document.querySelector('.close')
 const play = document.querySelector('.btn-play')
+const losses = document.querySelector('.losses')
 
 // Modal pops-up when page loads
 window.onload = () => {
@@ -23,6 +24,9 @@ const randomIndex = (nb) => {
 // Leaves the cards revealed if a pair is formed
 // If not, hides all the cards
 let numbersRevealed = []
+let attempts = 0
+let nbLosses = JSON.parse(losses.textContent)
+
 const revealText = (element) => {
     element.className = 'card textRevealed'
     numbersRevealed.push(element.textContent)
@@ -42,27 +46,50 @@ const revealText = (element) => {
                  }) 
             }, 700)
             numbersRevealed = []
+            attempts++
         }
+    }
+    // When player loses ! Needs fixing : class name is set to textRevealed then immediately to textHidden !
+    if (attempts === 3) {
+        console.log('You lost') // Display the message thanks to a modal or a pop-up
+        nbLosses++
+        losses.textContent = nbLosses
+        attempts = 0
+        play.disabled = false
+
+        cards.forEach(card => {
+            card.textContent = ''
+            card.removeAttribute('onclick')
+            card.className = 'card textRevealed'
+        })
+    }
+
+    // When game over
+    if (nbLosses === 3) {
+        console.log('Game Over') // Display the message thanks to a modal or a pop-up
     }
 }
 
-// Code for the play button -> Should start the game when clicked on
-play.addEventListener('click', () => console.log('Hey'))
 
-// Assigns a random number to each card so that it creates 6 pairs
-const numbers = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6]
+// Starts the game when play button is clicked
+play.addEventListener('click', () => {
+    // Assigns a random number to each card so that it creates 6 pairs
+    const numbers = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6]
 
-cards.forEach(card => {
-    const index = randomIndex(numbers.length)
-    const number = numbers[index]
-    card.textContent = number
-    numbers.splice(index, 1)
+    cards.forEach(card => {
+        const index = randomIndex(numbers.length)
+        const number = numbers[index]
+        card.textContent = number
+        numbers.splice(index, 1)
+    })
+
+    // Assigns the attribute 'onclick' and hides the number of each card after 5 seconds
+    setTimeout(() => {
+    cards.forEach(card => {
+            card.className = 'card textHidden'
+            card.setAttribute('onclick', 'revealText(this)')
+            play.disabled = true
+        }) 
+    }, 5000)
 })
 
-// Assigns the attribute 'onclick' and hides the number of each card after 5 seconds
-setTimeout(() => {
-   cards.forEach(card => {
-        card.className = 'card textHidden'
-        card.setAttribute('onclick', 'revealText(this)')
-    }) 
-}, 5000)
