@@ -1,6 +1,7 @@
 const cards = document.querySelectorAll('.card')
 const modal = document.getElementById('myModal')
 const closeModal = document.querySelector('.close')
+const play = document.querySelector('.btn-play')
 
 // Modal pops-up when page loads
 window.onload = () => {
@@ -44,6 +45,9 @@ const revealText = (element) => {
         }
     }
 }
+
+// Code for the play button -> Should start the game when clicked on
+play.addEventListener('click', () => console.log('Hey'))
 
 // Assigns a random number to each card so that it creates 6 pairs
 const numbers = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6]
