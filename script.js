@@ -28,7 +28,7 @@ let attempts = 0
 let nbLosses = JSON.parse(losses.textContent)
 
 const revealText = (element) => {
-    element.className = 'card textRevealed'
+    element.classList.remove('textHidden')
     numbersRevealed.push(element.textContent)
     for (let i = 0; i < numbersRevealed.length - 1; i++) {
         if (numbersRevealed[i] + element.textContent === '11' ||
@@ -42,14 +42,14 @@ const revealText = (element) => {
         } else {
             setTimeout(() => {
                 cards.forEach(card => {
-                     card.className = 'card textHidden'
+                     card.classList.add('textHidden')
                  }) 
-            }, 700)
+            }, 600)
             numbersRevealed = []
             attempts++
         }
     }
-    // When player loses ! Needs fixing : class name is set to textRevealed then immediately to textHidden !
+    // When player loses
     if (attempts === 3) {
         console.log('You lost') // Display the message thanks to a modal or a pop-up
         nbLosses++
@@ -60,13 +60,13 @@ const revealText = (element) => {
         cards.forEach(card => {
             card.textContent = ''
             card.removeAttribute('onclick')
-            card.className = 'card textRevealed'
         })
     }
 
     // When game over
     if (nbLosses === 3) {
         console.log('Game Over') // Display the message thanks to a modal or a pop-up
+        losses.textContent = '0'
     }
 }
 
@@ -81,12 +81,13 @@ play.addEventListener('click', () => {
         const number = numbers[index]
         card.textContent = number
         numbers.splice(index, 1)
+        card.classList.remove('textHidden')
     })
 
     // Assigns the attribute 'onclick' and hides the number of each card after 5 seconds
     setTimeout(() => {
     cards.forEach(card => {
-            card.className = 'card textHidden'
+            card.classList.add('textHidden')
             card.setAttribute('onclick', 'revealText(this)')
             play.disabled = true
         }) 

@@ -12,7 +12,7 @@ Features to implement:
         -and counter of losses++ - done
     -adding a limited number of losses before game over(3) - done
     -adding a message when game over
-        -and counter reset to zero
+        -and counter reset to zero - done
     -styling the cards and the background
 
 

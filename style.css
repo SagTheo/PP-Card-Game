@@ -32,6 +32,10 @@ body {
     cursor: pointer;
 }
 
+.btn-play:disabled {
+    background-color: rgba(210, 105, 30, 0.712);
+}
+
 /* Style for the modal */
 .modal {
     position: fixed; /* Stay in place */
