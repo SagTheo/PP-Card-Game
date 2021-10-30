@@ -1,17 +1,20 @@
 const cards = document.querySelectorAll('.card')
-const modal = document.getElementById('myModal')
-const closeModal = document.querySelector('.close')
+const modalRules = document.getElementById('myModal-rules')
+const closeModalRules = document.querySelector('.close-rules')
 const play = document.querySelector('.btn-play')
 const losses = document.querySelector('.losses')
+const modalLost = document.querySelector('.modal-lost')
+const modalGameOver = document.querySelector('.modal-gameover')
+const closeModals = document.querySelectorAll('.close-lost-gameover')
 
 // Modal pops-up when page loads
 window.onload = () => {
-    modal.style.display = 'block'
+    modalRules.style.display = 'block'
 }
 
 // Modal disappears when cross is clicked on
-closeModal.onclick = () => {
-    modal.style.display = 'none'
+closeModalRules.onclick = () => {
+    modalRules.style.display = 'none'
 }
 
 
@@ -51,7 +54,7 @@ const revealText = (element) => {
     }
     // When player loses
     if (attempts === 3) {
-        console.log('You lost') // Display the message thanks to a modal or a pop-up
+        modalLost.style.display = 'block' 
         nbLosses++
         losses.textContent = nbLosses
         attempts = 0
@@ -65,10 +68,20 @@ const revealText = (element) => {
 
     // When game over
     if (nbLosses === 3) {
-        console.log('Game Over') // Display the message thanks to a modal or a pop-up
-        losses.textContent = '0'
+        setTimeout(() => {
+            modalGameOver.style.display = 'block'
+            nbLosses = 0
+            losses.textContent = nbLosses
+        }, 1000)
     }
 }
+
+// Closes the lost and game over modals
+closeModals.forEach(cross => {
+    cross.addEventListener('click', () => {
+        cross.parentNode.parentNode.style.display = 'none'
+    })
+})
 
 
 // Starts the game when play button is clicked

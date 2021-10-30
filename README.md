@@ -8,11 +8,11 @@ Features to implement:
         -and remove the possibility to click on cards
     -adding a limited number of attempts before player loses(3) - done 
     -adding a counter that tracks the number of losses - done
-    -adding a message when the player loses(has used all of his attempts)
+    -adding a message when the player loses(has used all of his attempts) - done
         -and counter of losses++ - done
     -adding a limited number of losses before game over(3) - done
-    -adding a message when game over
-        -and counter reset to zero - done
+    -adding a message when game over - done
+        -and counter reset to zero - done 
     -styling the cards and the background
 
 

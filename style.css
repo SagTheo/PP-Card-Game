@@ -36,8 +36,9 @@ body {
     background-color: rgba(210, 105, 30, 0.712);
 }
 
-/* Style for the modal */
-.modal {
+/* Style for the modals */
+.modal-rules, .modal-lost, .modal-gameover {
+    display: none;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -49,34 +50,43 @@ body {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-.modal-content {
+.modal-content-rules, .modals-content {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 50%; 
     border-radius: 5px;
 }
 
-.headerModal {
-    display: grid;
-    grid-template-columns: 90% 10%;
-    grid-template-areas: 'title close'
+.modal-content-rules {
+    width: 50%;
 }
 
-.headerModal h1 {
+.headerModal-rules, .modals-content {
+    display: grid;
+    grid-template-columns: 90% 10%;
+}
+
+.headerModal-rules {
+    grid-template-areas: 'title close'    
+}
+
+.headerModal-rules h1 {
     grid-area: 'title';
     justify-self: center;
 }
 
-.close {
+.close-rules, .close-lost-gameover {
     cursor: pointer;
     font-weight: bold;
-    grid-area: 'close';
-    justify-self: end;
 }
 
-.close:hover {
+.close-rules {
+    grid-area: 'close';
+    justify-self: end;    
+}
+
+.close-rules:hover, .close-lost-gameover:hover {
     color: crimson;
 }
 
@@ -86,6 +96,25 @@ body {
 
 .rules li {
     padding: 3px;
+}
+
+.modals-content {
+    grid-template-rows: 10% 90%;
+    grid-template-areas: 
+        'empty closeLostGameOver'
+        'message empty';
+    width: 30%;
+    font-size: 2em;
+}
+
+.message {
+    grid-area: 'message';
+    justify-self: center;
+}
+
+.close-lost-gameover {
+    grid-area: 'closeLostGameOver';
+    justify-self: end;
 }
 
 /* Style for the cards */

@@ -9,11 +9,12 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <div class="headerModal">
+    <!-- Modal for the rules -->
+    <div id="myModal-rules" class="modal-rules">
+        <div class="modal-content-rules">
+            <div class="headerModal-rules">
                 <h1>Rules of the game</h1>
-                <span class="close">&times;</span>
+                <span class="close-rules">&times;</span>
             </div>
             <ul class="rules">
                 <li>When the button 'Play' is clicked, a new game begins</li>
@@ -28,6 +29,23 @@
         </div>
     </div>
 
+    <!-- Modal for when the player loses -->
+    <div class="modal-lost">
+        <div class="modals-content">
+            <span class="message">You lost</span>
+            <span class="close-lost-gameover">&times;</span>
+        </div>
+    </div>
+
+    <!-- Modal when game over -->
+    <div class="modal-gameover">
+        <div class="modals-content">
+            <span class="message">Game Over</span>
+            <span class="close-lost-gameover">&times;</span>
+        </div>
+    </div>
+
+    <!-- Cards -->
     <div class="container">
         <div class="counters">
             <table class="wins-losses">
