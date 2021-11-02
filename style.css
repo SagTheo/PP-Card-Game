@@ -133,12 +133,12 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-}
-
-.cardContainer div.textHidden {
+    font-size: 2em;
+    box-shadow: 3px 3px 6px gray;
+    background-color: gainsboro;
     color: white;
 }
 
-.cardContainer div.textRevealed {
-    color: black;
+.cardContainer div.textHidden {
+    color: gainsboro;
 }

@@ -36,6 +36,7 @@ let nbLosses = JSON.parse(losses.textContent)
 
 const revealText = (element) => {
     element.classList.remove('textHidden')
+    element.removeAttribute('onclick')
     numbersRevealed.push(element.textContent)
     numbersRevealedBis.push(element.textContent)
     for (let i = 0; i < numbersRevealed.length - 1; i++) {
@@ -51,6 +52,7 @@ const revealText = (element) => {
             setTimeout(() => {
                 cards.forEach(card => {
                      card.classList.add('textHidden')
+                     card.setAttribute('onclick', 'revealText(this)')
                  }) 
             }, 600)
             numbersRevealed = []
@@ -69,7 +71,6 @@ const revealText = (element) => {
 
         cards.forEach(card => {
             card.textContent = ''
-            card.removeAttribute('onclick')
         })
     }
 
@@ -81,10 +82,13 @@ const revealText = (element) => {
         attempts = 0
         play.disabled = false
 
-        cards.forEach(card => {
-            card.textContent = ''
-            card.removeAttribute('onclick')
-        })
+        setTimeout(() => {
+            cards.forEach(card => {
+                card.textContent = ''
+                card.removeAttribute('onclick')
+            })
+        }, 650)
+        
     }
 
     // When game over
@@ -93,7 +97,9 @@ const revealText = (element) => {
             modalGameOver.style.display = 'block'
             nbLosses = 0
             losses.textContent = nbLosses
-        }, 700)
+            nbWins = 0
+            wins.textContent = nbWins
+        }, 600)
     }
 }
 

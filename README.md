@@ -13,7 +13,7 @@ Features to implement:
     -adding a limited number of losses before game over(3) - done
     -adding a message when game over - done
         -and counter reset to zero - done 
-    -styling the cards and the background
+    -styling the cards and the background - done
 
 
 
@@ -31,3 +31,14 @@ Difficulties encountered:
     -used Bootstrap modal at first --> broke the HTML code 
         -sorted out: created a modal with CSS (a div that takes the whole page and another inside the first one for the
                      content of the modal), and set its display to 'block' or 'none' when needed
+
+-fixing a bug: even after revealing a card, player could still click on it, adding the number of that card to the array
+               'numbersRevealed' and that would create a bug when the player clicked on other cards
+                    sorted out: removed the attribute 'onclick' when player clicked on a card and therefore had to reset
+                                that same attribute when player didn't find a pair
+                                --> created another bug: when player lost, the attribute 'onclick' got removed and then 
+                                    reset again
+                                        -sorted out: simply put the code that removes the attribute 'onclick' (when player 
+                                                     loses) in a setTimeout function so that the removal of that attribute
+                                                     is delayed after it is re-added
+                                                        
