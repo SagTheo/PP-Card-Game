@@ -2,10 +2,12 @@ const cards = document.querySelectorAll('.card')
 const modalRules = document.getElementById('myModal-rules')
 const closeModalRules = document.querySelector('.close-rules')
 const play = document.querySelector('.btn-play')
+const wins = document.querySelector('.wins')
 const losses = document.querySelector('.losses')
+const modalWon = document.querySelector('.modal-won')
 const modalLost = document.querySelector('.modal-lost')
 const modalGameOver = document.querySelector('.modal-gameover')
-const closeModals = document.querySelectorAll('.close-lost-gameover')
+const closeModals = document.querySelectorAll('.close-modals')
 
 // Modal pops-up when page loads
 window.onload = () => {
@@ -27,12 +29,15 @@ const randomIndex = (nb) => {
 // Leaves the cards revealed if a pair is formed
 // If not, hides all the cards
 let numbersRevealed = []
+let numbersRevealedBis = []
 let attempts = 0
+let nbWins = JSON.parse(wins.textContent)
 let nbLosses = JSON.parse(losses.textContent)
 
 const revealText = (element) => {
     element.classList.remove('textHidden')
     numbersRevealed.push(element.textContent)
+    numbersRevealedBis.push(element.textContent)
     for (let i = 0; i < numbersRevealed.length - 1; i++) {
         if (numbersRevealed[i] + element.textContent === '11' ||
             numbersRevealed[i] + element.textContent === '22' ||
@@ -49,9 +54,25 @@ const revealText = (element) => {
                  }) 
             }, 600)
             numbersRevealed = []
+            numbersRevealedBis = []
             attempts++
         }
     }
+    
+    // When player wins
+    if (numbersRevealedBis.length === 12) {
+        modalWon.style.display = 'block'
+        nbWins++
+        wins.textContent = nbWins
+        numbersRevealedBis = []
+        play.disabled = false
+
+        cards.forEach(card => {
+            card.textContent = ''
+            card.removeAttribute('onclick')
+        })
+    }
+
     // When player loses
     if (attempts === 3) {
         modalLost.style.display = 'block' 
@@ -72,7 +93,7 @@ const revealText = (element) => {
             modalGameOver.style.display = 'block'
             nbLosses = 0
             losses.textContent = nbLosses
-        }, 1000)
+        }, 700)
     }
 }
 

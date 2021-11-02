@@ -3,9 +3,9 @@
 Features to implement:
     -adding a button that starts the game and allows to play another one - done
     -adding a counter that tracks the number of wins - done
-    -adding a message when the player wins
-        -and counter++
-        -and remove the possibility to click on cards
+    -adding a message when the player wins - done
+        -and counter++ - done
+        -and remove the possibility to click on cards - done
     -adding a limited number of attempts before player loses(3) - done 
     -adding a counter that tracks the number of losses - done
     -adding a message when the player loses(has used all of his attempts) - done
@@ -26,3 +26,8 @@ Difficulties encountered:
 -letting the cards revealed if a pair is formed, hiding them again if not:
     -sorted out: used an array to store the first card that is clicked on, then a for loop to check if a pair has been    
                  formed when player clicks on a second card. If it is not the case, then a setTimeout() function resets the class of each card to textHidden
+
+-displaying a message for the rules, when the player wins or lose or when it is game over:
+    -used Bootstrap modal at first --> broke the HTML code 
+        -sorted out: created a modal with CSS (a div that takes the whole page and another inside the first one for the
+                     content of the modal), and set its display to 'block' or 'none' when needed

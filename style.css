@@ -37,7 +37,7 @@ body {
 }
 
 /* Style for the modals */
-.modal-rules, .modal-lost, .modal-gameover {
+.modal-rules, .modal-lost, .modal-gameover, .modal-won {
     display: none;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -76,7 +76,7 @@ body {
     justify-self: center;
 }
 
-.close-rules, .close-lost-gameover {
+.close-rules, .close-modals {
     cursor: pointer;
     font-weight: bold;
 }
@@ -86,7 +86,7 @@ body {
     justify-self: end;    
 }
 
-.close-rules:hover, .close-lost-gameover:hover {
+.close-rules:hover, .close-modals:hover {
     color: crimson;
 }
 
@@ -99,10 +99,7 @@ body {
 }
 
 .modals-content {
-    grid-template-rows: 10% 90%;
-    grid-template-areas: 
-        'empty closeLostGameOver'
-        'message empty';
+    grid-template-areas: 'message closeModals';
     width: 30%;
     font-size: 2em;
 }
@@ -112,8 +109,8 @@ body {
     justify-self: center;
 }
 
-.close-lost-gameover {
-    grid-area: 'closeLostGameOver';
+.close-modals {
+    grid-area: 'closeModals';
     justify-self: end;
 }
 
