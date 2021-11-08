@@ -14,6 +14,7 @@ Features to implement:
     -adding a message when game over - done
         -and counter reset to zero - done 
     -styling the cards and the background - done
+    -making a french version of the app(toggle button?)
 
 
 
