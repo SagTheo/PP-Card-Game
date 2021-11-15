@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de cartes</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Modal for the rules -->
+    <div id="myModal-rules" class="modal-rules">
+        <div class="modal-content-rules">
+            <div class="headerModal-rules">
+                <h1>Règles du jeu</h1>
+                <span class="close-rules">&times;</span>
+            </div>
+            <ul class="rules">
+                <li>When the button 'Play' is clicked, a new game begins</li>
+                <li>You will have 5 seconds to memorise the numbers on the cards before they disappear</li>
+                <li>You will then have to click on a card to reveal the number</li>
+                <li>If you find a pair, the numbers will stay on the cards</li>
+                <li>If you don't, all the numbers will disappear again</li>
+                <li>If you find all the pairs, you win. That will add 1 to the counter of wins</li>
+                <li>If you make the numbers disappear 3 times, you lose. That will add 1 to the counter of losses</li>
+                <li>If you lose 3 times, it is game over. The counter of wins and losses will be reset to zero</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal for when the player wins -->
+    <div class="modal-won">
+        <div class="modals-content">
+            <span class="message">Vous avez gagné</span>
+            <span class="close-modals">&times;</span>
+        </div>
+    </div>
+
+    <!-- Modal for when the player loses -->
+    <div class="modal-lost">
+        <div class="modals-content">
+            <span class="message">Vous avez perdu</span>
+            <span class="close-modals">&times;</span>
+        </div>
+    </div>
+
+    <!-- Modal when game over -->
+    <div class="modal-gameover">
+        <div class="modals-content">
+            <span class="message">Game Over</span>
+            <span class="close-modals">&times;</span>
+        </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="container">
+        <div class="counters">
+            <table class="wins-losses">
+                <tr>
+                    <td style="color: green;">Wins</td>
+                    <td style="color: red;">Losses</td>
+                </tr>
+                <tr>
+                    <td class="wins">0</td>
+                    <td class="losses">0</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="cardContainer">
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </div>
+
+        <div class="play">
+            <button class="btn-play">Jouer</button>
+        </div>
+    </div>
+</body>
+</html>
