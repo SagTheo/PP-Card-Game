@@ -8,11 +8,28 @@ body {
 }
 
 /* Style for the counters and the button */
-.counters, .play {
+.counters {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 25%;
+}
+
+.play {
+    display: grid;
+    width: 25%;
+}
+
+.play div:last-child {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.play a img {
+    width: 8%;
+    float: right;
+    margin: 0.2rem;
 }
 
 .wins-losses {
