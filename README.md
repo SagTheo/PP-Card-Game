@@ -16,6 +16,10 @@ Features to implement:
     -styling the cards and the background - done
     -making a french version of the app - done
 
+Bug:
+    -sometimes, player starts a new game and loses after less than 3 attempts at revealing the cards
+     ->array is not reset properly perhaps?
+
 
 
 Difficulties encountered:
