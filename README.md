@@ -18,7 +18,7 @@ Features to implement:
 
 Bug:
     -sometimes, player starts a new game and loses after less than 3 attempts at revealing the cards
-     ->array is not reset properly perhaps?
+     ->sorted out : 'attempts' was not reset to zero when player won, so when player started a new game, he/she didn't have all 3 of his/her attempts
 
 
 

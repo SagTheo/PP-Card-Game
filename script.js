@@ -67,6 +67,7 @@ const revealText = (element) => {
         nbWins++
         wins.textContent = nbWins
         numbersRevealedBis = []
+        attempts = 0
         play.disabled = false
 
         cards.forEach(card => {
@@ -87,7 +88,7 @@ const revealText = (element) => {
                 card.textContent = ''
                 card.removeAttribute('onclick')
             })
-        }, 650)
+        }, 650) 
         
     }
 
